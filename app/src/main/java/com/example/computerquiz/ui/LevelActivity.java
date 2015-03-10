@@ -46,8 +46,8 @@ public class LevelActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(LevelActivity.this,QuestionActivity.class);
                 i.putExtra("selected_level",levels.get(position)._id);
+                i.putExtra("selected_category",levels.get(position).category_id);
                 startActivity(i);
-
             }
         });
     }

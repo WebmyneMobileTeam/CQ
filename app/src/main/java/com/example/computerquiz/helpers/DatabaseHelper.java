@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.computerquiz.model.Category;
 import com.example.computerquiz.model.Level;
+import com.example.computerquiz.model.Question;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -99,6 +100,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return levels;
+
+    }
+
+    public ArrayList<Question> getQuestions(int category_id,int level_id){
+        ArrayList<Question> questions = new ArrayList<>();
+        myDataBase = this.getWritableDatabase();
+
+         String wher = "category_id" + " = ? AND " + "level_id" + " = ?";
+       // String wher = "category_id" + " = ?";
+        // String[] FIELDS = { "cast_matches_" };
+        Cursor cursor =   myDataBase.query("Question", null, wher, new String[]{""+category_id,""+level_id}, null, null, null);
+        cursor.moveToFirst();
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                Question question = new Question();
+                question._id = cursor.getInt(cursor.getColumnIndex("_id"));
+                question.category_id = cursor.getInt(cursor.getColumnIndex("category_id"));
+                question.correct_answer = cursor.getInt(cursor.getColumnIndex("correct_answer"));
+                question.level_id = cursor.getInt(cursor.getColumnIndex("level_id"));
+                question.description = cursor.getString(cursor.getColumnIndex("description"));
+                question.option1 = cursor.getString(cursor.getColumnIndex("option_1"));
+                question.option2 = cursor.getString(cursor.getColumnIndex("option_2"));
+                question.option3 = cursor.getString(cursor.getColumnIndex("option_3"));
+                question.option4 = cursor.getString(cursor.getColumnIndex("option_4"));
+                question.option5 = cursor.getString(cursor.getColumnIndex("option_5"));
+
+                questions.add(question);
+
+            } while (cursor.moveToNext());
+        }
+
+        return questions;
 
     }
 
