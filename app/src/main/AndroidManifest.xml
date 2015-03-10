@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.computerquiz"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.computerquiz.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.computerquiz.Categories"
+            android:label="@string/title_activity_categories" >
+        </activity>
+        <activity
+            android:name="com.example.computerquiz.Question"
+            android:label="@string/title_activity_question" >
+        </activity>
+        <activity
+            android:name="com.example.computerquiz.SubCategory"
+            android:label="@string/title_activity_sub_category" >
+        </activity>
+        <activity
+            android:name="com.example.computerquiz.Result"
+            android:label="@string/title_activity_result" >
+        </activity>
+        <activity
+            android:name="com.example.computerquiz.Result2"
+            android:label="@string/title_activity_result2" >
+        </activity>
+        <activity
+            android:name="com.example.computerquiz.ResultAnalysis"
+            android:label="@string/title_activity_result_analysis" >
+        </activity>
+        <activity
+            android:name="com.example.computerquiz.Review"
+            android:label="@string/title_activity_review" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".SubCategory" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sub-Category"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#800080"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#800080"
+        android:text="Beginners" 
+        android:onClick="call"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#800080"
+        android:text="Novice" 
+        android:onClick="call"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#800080"
+        android:text="Intermediate"
+        android:onClick="call" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:onClick="call"
+        android:text="Advanced"
+        android:textColor="#800080" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:onClick="call"
+        android:text="Expert"
+        android:textColor="#800080" />
+
+</LinearLayout>
