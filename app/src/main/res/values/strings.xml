@@ -14,4 +14,7 @@
     <string name="title_category">Choose Category</string>
     <string name="title_level">Choose Test Level</string>
 
+    <string name="title_next_question">Next</string>
+    <string name="title_previous_question">Previous</string>
+
 </resources>

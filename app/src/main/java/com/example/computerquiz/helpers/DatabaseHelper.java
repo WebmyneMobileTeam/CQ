@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.computerquiz.model.Category;
+import com.example.computerquiz.model.Level;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -71,6 +72,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return categories;
+
+    }
+
+    public ArrayList<Level> getLevels(int category_id){
+        ArrayList<Level> levels = new ArrayList<>();
+        myDataBase = this.getWritableDatabase();
+
+       // String wher = "category_id" + " = ? AND " + "main_line_type_" + " = ?";
+        String wher = "category_id" + " = ?";
+        // String[] FIELDS = { "cast_matches_" };
+        Cursor cursor =   myDataBase.query("Level", null, wher, new String[]{""+category_id}, null, null, null);
+
+        cursor.moveToFirst();
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                Level level = new Level();
+                level._id = cursor.getInt(cursor.getColumnIndex("_id"));
+                level.level_name = cursor.getString(cursor.getColumnIndex("name"));
+                level.category_id = cursor.getInt(cursor.getColumnIndex("category_id"));
+                levels.add(level);
+
+            } while (cursor.moveToNext());
+        }
+
+        return levels;
 
     }
 

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -48,13 +49,24 @@ public class CategoriesActivity extends ActionBarActivity {
     private void init() {
 
         lvCategories = (ListView) findViewById(R.id.listCategories);
+        lvCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent i = new Intent(CategoriesActivity.this,LevelActivity.class);
+                i.putExtra("selected_category",categories.get(position)._id);
+                startActivity(i);
+
+            }
+        });
+
     }
 
     private void setupToolBar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
 
-            toolbar.setTitle("Welcome User,");
+            toolbar.setTitle("Select Category");
 
             setSupportActionBar(toolbar);
         }
@@ -141,7 +153,7 @@ public class CategoriesActivity extends ActionBarActivity {
 
             }
             ViewHolder holder = (ViewHolder) rowView.getTag();
-            Category eachCategory = categories.get(position);
+            Category eachCategory = programs.get(position);
 
             holder.txtTitleCategoryName.setText(String.format("%d. %s",position+1,eachCategory.category_name));
 

@@ -7,20 +7,7 @@
     tools:context=".Categories">
     <include layout="@layout/app_bar"/>
 
-    <FrameLayout
-        android:background="@color/primaryColor"
-        android:layout_width="match_parent"
-        android:layout_height="56dp">
-        <TextView
-            android:layout_marginBottom="8dp"
-            android:layout_gravity="bottom|center_horizontal"
-            android:text="@string/title_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:textSize="@dimen/normal_text" />
 
-    </FrameLayout>
 
     <ListView
         android:divider="@null"
