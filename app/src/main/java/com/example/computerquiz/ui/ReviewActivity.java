@@ -1,4 +1,4 @@
-package com.example.computerquiz;
+package com.example.computerquiz.ui;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class Review extends Activity {
+import com.example.computerquiz.R;
+
+public class ReviewActivity extends Activity {
 
 	String arr[]=new String[15];
 	@Override

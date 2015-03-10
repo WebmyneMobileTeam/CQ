@@ -1,4 +1,4 @@
-package com.example.computerquiz;
+package com.example.computerquiz.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
-public class Categories extends Activity {
+import com.example.computerquiz.R;
+
+public class CategoriesActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,21 +24,20 @@ public class Categories extends Activity {
 	}
 	public void but1(View v)
 	{
-		Intent i=new Intent(this,SubCategory.class);	//Web and Inteface button on being clicked diverted to SubCategory page
+		Intent i=new Intent(this,SubCategoryActivity.class);	//Web and Inteface button on being clicked diverted to SubCategory page
         startActivity(i);
 	}
 	
 	public void but2(View v)
 	{
-		Intent i=new Intent(this,SubCategory.class);	//Web and Inteface button on being clicked diverted to SubCategory page
+		Intent i=new Intent(this,SubCategoryActivity.class);	//Web and Inteface button on being clicked diverted to SubCategory page
         startActivity(i);
 	}
 	
 	public void but3(View v)
 	{
-		Intent i=new Intent(this,SubCategory.class);	//Web and Inteface button on being clicked diverted to SubCategory page
+		Intent i=new Intent(this,SubCategoryActivity.class);	//Web and Inteface button on being clicked diverted to SubCategory page
         startActivity(i);
-		
 	}
 
 }

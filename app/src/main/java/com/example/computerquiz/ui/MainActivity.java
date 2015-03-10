@@ -1,4 +1,4 @@
-package com.example.computerquiz;
+package com.example.computerquiz.ui;
 
 
 
@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.view.Menu;
+
+import com.example.computerquiz.R;
 
 public class MainActivity extends Activity {
 
@@ -50,7 +52,7 @@ public class MainActivity extends Activity {
 			}
 			
 		}.start();				//Starts the thread
-		Intent i=new Intent(this,Categories.class);	//Divert the control to Categories after 5000msec automatically
+		Intent i=new Intent(this,CategoriesActivity.class);	//Divert the control to Categories after 5000msec automatically
         startActivity(i);
 	}
 

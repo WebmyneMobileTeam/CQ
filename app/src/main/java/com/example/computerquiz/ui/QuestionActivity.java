@@ -1,4 +1,4 @@
-package com.example.computerquiz;
+package com.example.computerquiz.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Question extends Activity {
+import com.example.computerquiz.R;
+
+public class QuestionActivity extends Activity {
 
 	int n=0;			//Storing the question number
 	int score=0;		//Storing the total score
@@ -89,7 +91,7 @@ public class Question extends Activity {
 			}
 			else		//if passes(45%+)
 			{
-			Intent i=new Intent(this,Result.class);		//go to Result page
+			Intent i=new Intent(this,ResultActivity.class);		//go to Result page
 			i.putExtra("score", score+"");
 			i.putExtra("arr", arr);
 		    startActivity(i);
@@ -113,7 +115,7 @@ public class Question extends Activity {
 	}
 	public void next(View v)		//what to do when next button is clicked(go to next question)
 	{
-		Intent i=new Intent(this,Question.class);
+		Intent i=new Intent(this,QuestionActivity.class);
 		i.putExtra("q", (n+1)+"");		//next question as n+1 is sent
 		i.putExtra("choice", choice);
         startActivity(i);
@@ -122,7 +124,7 @@ public class Question extends Activity {
 	
 	public void previous(View v)	//what to do when previous button is clicked(go to previous question)
 	{
-		Intent i=new Intent(this,Question.class);
+		Intent i=new Intent(this,QuestionActivity.class);
 		i.putExtra("q", (n-1)+"");		//previous question as n-1 is sent
 		i.putExtra("choice", choice);
         startActivity(i);
@@ -138,7 +140,7 @@ public class Question extends Activity {
 		case R.id.button4:choice[n-1]=4;break;
 		case R.id.button5:choice[n-1]=5;break;
 		}
-		Intent i=new Intent(this,Question.class);
+		Intent i=new Intent(this,QuestionActivity.class);
 		i.putExtra("q", (n+1)+"");		//after selecting a option automatically goes to the next question
 		i.putExtra("choice", choice);
         startActivity(i);

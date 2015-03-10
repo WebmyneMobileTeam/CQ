@@ -1,4 +1,4 @@
-package com.example.computerquiz;
+package com.example.computerquiz.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-public class ResultAnalysis extends Activity {
+import com.example.computerquiz.R;
+
+public class ResultAnalysisActivity extends Activity {
 
 	String score="0";
 	String arr[]=new String[15];
@@ -38,7 +40,7 @@ public class ResultAnalysis extends Activity {
 	}
 	public void review(View v)		//what to do when review button is clicked
 	{
-		Intent i=new Intent(this,Review.class);		//go to review of the page
+		Intent i=new Intent(this,ReviewActivity.class);		//go to review of the page
 		i.putExtra("arr", arr);
 		startActivity(i);
 		finish();
