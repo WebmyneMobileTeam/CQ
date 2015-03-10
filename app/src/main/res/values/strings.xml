@@ -11,6 +11,7 @@
     <string name="title_activity_result_analysis">ResultAnalysis</string>
     <string name="title_activity_review">Review</string>
 
-
+    <string name="title_category">Choose Category</string>
+    <string name="title_level">Choose Test Level</string>
 
 </resources>

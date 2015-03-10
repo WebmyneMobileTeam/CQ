@@ -29,20 +29,21 @@ public class MainActivity extends Activity {
 	public void call()
 	{
 		Handler mHandler = new Handler();
-		mHandler.postDelayed(new Runnable() {
+
+		mHandler.post(new Runnable() {
             public void run() {
                 func();
             }
-        }, 3000);
+        });
 		
 	}
 	public void func()
 	{
-		final ProgressDialog pausingDialog = ProgressDialog.show(this, "", "Loading..", true);	//display the loading button
+/*		final ProgressDialog pausingDialog = ProgressDialog.show(this, "", "Loading..", true);	//display the loading button
 		new Thread() {
 			public void run() {
 				try {
-					Thread.sleep(5000);			//Lets the thread sleep for 5000msec
+					Thread.sleep(1000);			//Lets the thread sleep for 5000msec
 					
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -51,9 +52,10 @@ public class MainActivity extends Activity {
 				pausingDialog.dismiss();
 			}
 			
-		}.start();				//Starts the thread
+		}.start();		*/		//Starts the thread
 		Intent i=new Intent(this,CategoriesActivity.class);	//Divert the control to Categories after 5000msec automatically
         startActivity(i);
+        finish();
 	}
 
 }

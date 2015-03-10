@@ -14,7 +14,7 @@
         <TextView
             android:layout_marginBottom="8dp"
             android:layout_gravity="bottom|center_horizontal"
-            android:text="@string/title_category"
+            android:text="@string/title_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#fff"
@@ -26,7 +26,7 @@
         android:divider="@null"
         android:scrollbars="none"
         android:padding="@dimen/preference_fragment_padding_side"
-        android:id="@+id/listCategories"
+        android:id="@+id/listLevelss"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="4dp" />

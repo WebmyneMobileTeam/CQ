@@ -1,15 +1,19 @@
 package com.example.computerquiz.helpers;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.computerquiz.model.Category;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 /**
  * Created by xitij on 06-03-2015.
@@ -22,17 +26,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private SQLiteDatabase myDataBase = null;
     private Context myContext;
 
+
     public DatabaseHelper(Context context) {
         super(context, DB_NAME,null,1);
         this.myContext = context;
     }
 
-
     public void createDataBase() throws IOException {
 
         boolean dbExist = checkDataBase();
         if(dbExist){
-//            Log.v("log_tag", "database does exist");
+//      Log.v("log_tag", "database does exist");
         }else{
 //            Log.v("log_tag", "database does not exist");
             this.getReadableDatabase();
@@ -44,6 +48,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
     }
+
+    public ArrayList<Category> getAllCategories(){
+        ArrayList<Category> categories = new ArrayList<>();
+        myDataBase = this.getWritableDatabase();
+
+      //  String wher = "role_name_" + " = ? AND " + "main_line_type_" + " = ?";
+       // String[] FIELDS = { "cast_matches_" };
+        Cursor cursor =   myDataBase.query("Category", null, null, null, null, null, null);
+        String castMatchesString = null;
+        cursor.moveToFirst();
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                Category category = new Category();
+                category._id = cursor.getInt(cursor.getColumnIndex("_id"));
+                category.category_name = cursor.getString(cursor.getColumnIndex("name"));
+                categories.add(category);
+
+            } while (cursor.moveToNext());
+        }
+
+        return categories;
+
+    }
+
 
     private void copyDataBase() throws IOException {
 
