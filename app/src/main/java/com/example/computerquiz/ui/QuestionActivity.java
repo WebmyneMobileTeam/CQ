@@ -8,7 +8,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,8 @@ public class QuestionActivity extends ActionBarActivity {
     private int selected_category;
     private ArrayList<Question> questions;
     private DatabaseHelper dbHelper;
+    private TextView txtQuestionDescription;
+    private RadioGroup radioGroup;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +56,13 @@ public class QuestionActivity extends ActionBarActivity {
 
     }
 
-
     private void init() {
 
         txtNext = (TextView)findViewById(R.id.txtNextQuestion);
         txtPrevious = (TextView)findViewById(R.id.txtPreviousQuestion);
         txtQuestionNumber = (TextView)findViewById(R.id.txtQuestionNumber);
+        txtQuestionDescription = (TextView)findViewById(R.id.txtQuestionDescription);
+        radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
 
         txtPrevious.setOnClickListener(previousListner);
         txtNext.setOnClickListener(nextListner);
@@ -142,7 +148,40 @@ public class QuestionActivity extends ActionBarActivity {
             txtPrevious.setVisibility(View.VISIBLE);
         }
 
+        if(current_question == questions.size()-1){
+
+            txtNext.setText("Finish");
+        }else{
+            txtNext.setText("Next");
+        }
+
         txtQuestionNumber.setText(String.format("Question %d / %d",current_question+1,questions.size()));
+
+        // fill question details
+
+        Question selectedQuestion = questions.get(current_question);
+        txtQuestionDescription.setText(selectedQuestion.description);
+        fillOptions(selectedQuestion.getOptions());
+
+
+
+
+    }
+
+    private void fillOptions(ArrayList<String> options) {
+
+        radioGroup.removeAllViews();
+        radioGroup.invalidate();
+        RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        for (int i=0;i<options.size();i++){
+
+            RadioButton button = new RadioButton(QuestionActivity.this);
+            button.setText(options.get(i));
+            radioGroup.addView(button,params);
+        }
+
+
     }
 
 
