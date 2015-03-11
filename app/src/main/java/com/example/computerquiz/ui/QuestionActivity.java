@@ -135,8 +135,6 @@ public class QuestionActivity extends ActionBarActivity {
             }else{
                 setupQuestion(current_question);
             }
-
-
         }
     }
 
