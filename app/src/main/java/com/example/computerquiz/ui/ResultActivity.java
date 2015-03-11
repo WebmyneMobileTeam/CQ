@@ -12,6 +12,7 @@ public class ResultActivity extends Activity {
 
 	String score="";
 	String arr[]=new String[15];
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

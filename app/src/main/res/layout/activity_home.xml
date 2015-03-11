@@ -1,0 +1,234 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#494949">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:textStyle="bold"
+            android:text="Welcome to Quiz App"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:id="@+id/linearTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.example.computerquiz.ui.widget.HalfHeightLayout
+                android:id="@+id/btnMessages"
+
+                android:layout_margin="1dp"
+                android:background="@drawable/gradient_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/txtHomeMessages"
+                    android:layout_alignParentBottom="true"
+                    style="@style/home_btn_big_txt"
+                    android:text="Give Test" />
+
+                <FrameLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/txtHomeMessages">
+
+                    <ImageView
+
+                        android:src="@drawable/ic_action_content_paste"
+                        android:layout_gravity="center"
+                        style="@style/home_btn_big_iv" />
+
+                </FrameLayout>
+
+
+            </com.example.computerquiz.ui.widget.HalfHeightLayout>
+
+            <com.example.computerquiz.ui.widget.HalfHeightLayout
+                android:layout_margin="1dp"
+                android:background="@drawable/gradient_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:id="@+id/txtHomeUpload"
+                    android:layout_alignParentBottom="true"
+                    style="@style/home_btn_big_txt"
+                    android:text="Results" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/txtHomeUpload">
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_action_event_note"
+
+                        style="@style/home_btn_big_iv" />
+
+                </FrameLayout>
+
+
+            </com.example.computerquiz.ui.widget.HalfHeightLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <com.example.computerquiz.ui.widget.HalfHeightLayout
+                android:layout_margin="1dp"
+                android:background="@drawable/gradient_orange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:id="@+id/txtHomeFavourites"
+                    android:layout_alignParentBottom="true"
+                    style="@style/home_btn_big_txt"
+                    android:text="hi" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/txtHomeFavourites">
+
+                    <ImageView
+                        android:src="@drawable/ic_launcher"
+                        android:layout_above="@+id/btn3"
+                        style="@style/home_btn_big_iv" />
+
+                </FrameLayout>
+
+
+            </com.example.computerquiz.ui.widget.HalfHeightLayout>
+
+            <com.example.computerquiz.ui.widget.HalfHeightLayout
+                android:layout_margin="1dp"
+                android:background="@drawable/gradient_violet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/txtHomeSettingss"
+                    android:layout_alignParentBottom="true"
+                    style="@style/home_btn_big_txt"
+                    android:text="hi" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@id/txtHomeSettingss">
+
+                    <ImageView
+                        android:src="@drawable/ic_launcher"
+                        android:layout_above="@+id/btn4"
+                        style="@style/home_btn_big_iv" />
+                </FrameLayout>
+
+            </com.example.computerquiz.ui.widget.HalfHeightLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_below="@id/linearTop"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/home_ll_ic2_margin_lr"
+        android:layout_marginRight="@dimen/home_ll_ic2_margin_lr"
+        android:layout_marginTop="32dp"
+        android:layout_centerInParent="true"
+        style="@style/fill_wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:paddingLeft="@dimen/home_btn_small_margin_lr"
+            style="@style/home_btn_small">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:src="@drawable/ic_action_person_outline"
+                style="@style/home_btn_small_iv" />
+
+            <TextView
+                android:textColor="@color/blue"
+                android:id="@+id/tv_search"
+                android:text="Profile"
+                android:layout_toRightOf="@id/iv_search"
+                style="@style/home_btn_small_tv" />
+
+
+        </RelativeLayout>
+
+        <ImageView style="@style/home_btn_separator" />
+
+        <RelativeLayout
+            android:id="@+id/rl_language"
+            android:paddingLeft="@dimen/home_btn_small_margin_lr"
+            style="@style/home_btn_small">
+
+            <ImageView
+                android:id="@+id/iv_language"
+                android:src="@drawable/ic_action_settings"
+                style="@style/home_btn_small_iv" />
+
+            <TextView
+                android:textColor="@color/green"
+                android:id="@+id/tv_language"
+                android:text="Settings"
+                android:layout_toRightOf="@id/iv_language"
+                style="@style/home_btn_small_tv" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

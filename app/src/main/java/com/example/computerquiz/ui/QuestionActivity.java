@@ -44,7 +44,6 @@ public class QuestionActivity extends ActionBarActivity {
 
         selected_category = getIntent().getIntExtra("selected_category",0);
         selected_level = getIntent().getIntExtra("selected_level",0);
-
         new fetchQuestions().execute();
 
 	}
@@ -53,9 +52,7 @@ public class QuestionActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
 
-
     }
-
     private void init() {
 
         txtNext = (TextView)findViewById(R.id.txtNextQuestion);
@@ -78,7 +75,6 @@ public class QuestionActivity extends ActionBarActivity {
                 current_question = current_question+1;
                 setupQuestion(current_question);
             }
-
         }
     };
 
@@ -160,9 +156,6 @@ public class QuestionActivity extends ActionBarActivity {
         Question selectedQuestion = questions.get(current_question);
         txtQuestionDescription.setText(selectedQuestion.description);
         fillOptions(selectedQuestion.getOptions());
-
-
-
 
     }
 

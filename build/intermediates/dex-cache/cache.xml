@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="F:\current_projects\CQ\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="F:\current_projects\CQ\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-fae814bcf7b4fbb589185fae93bf47e8e97cbbc9.jar" />
-    </item>
-    <item
-        jar="F:\current_projects\CQ\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="F:\current_projects\CQ\app\build\intermediates\pre-dexed\debug\classes-ea0b71cc93f480b17d926af7a9597c703122a0bd.jar" />
-    </item>
-    <item
-        jar="C:\Users\dddro_000\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="F:\current_projects\CQ\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-55b278fdfab8dfa33d43b21a861f270390500932.jar" />
-    </item>
-    <item
-        jar="F:\current_projects\CQ\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="F:\current_projects\CQ\app\build\intermediates\pre-dexed\debug\classes-2e682de780276e46c4a9399315e5d0640887deef.jar" />
+        <dex dex="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\pre-dexed\release\classes-228d4eafb2b7094cd8b55cfc8a1ec8762161942e.jar" />
     </item>
     <item
-        jar="F:\current_projects\CQ\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex dex="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\pre-dexed\release\classes-707a493062c158352333c8f4334385269867625b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\pre-dexed\release\internal_impl-21.0.3-a2aedc47e43f60a580bb82590386071b765d4c39.jar" />
+    </item>
+    <item
+        jar="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="F:\current_projects\CQ\app\build\intermediates\pre-dexed\debug\classes-f69bcb42399b442e9626204b5ababba6c55acfe0.jar" />
+        <dex dex="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\pre-dexed\release\classes-c3e57b01e55ffc69901846b4442eaa0d21947cb8.jar" />
+    </item>
+    <item
+        jar="D:\android-sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="C:\Users\Android\Desktop\ComputerQuiz2\app\build\intermediates\pre-dexed\release\support-annotations-21.0.3-d468e72c8ea79625b7615186601440b8d5bb481e.jar" />
     </item>
 
 </items>
