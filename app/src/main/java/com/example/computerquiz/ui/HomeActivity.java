@@ -19,8 +19,10 @@ public class HomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         btnGiveTest = (HalfHeightLayout)findViewById(R.id.btnGiveTest);
         btnGiveTest.setOnClickListener(newTestListner);
+
 
     }
 

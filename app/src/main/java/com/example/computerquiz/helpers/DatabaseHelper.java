@@ -1,5 +1,6 @@
 package com.example.computerquiz.helpers;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.computerquiz.model.Category;
 import com.example.computerquiz.model.Level;
 import com.example.computerquiz.model.Question;
+import com.example.computerquiz.model.Test;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -134,6 +136,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return questions;
+
+    }
+
+    public void insertTest(Test test){
+
+        ContentValues cv = new ContentValues();
+        cv.put("level_id",test.level_id);
+        cv.put("category_id",test.category_id);
+        cv.put("total_questions",test.total_questions);
+        cv.put("correct_questions",test.correct_questions);
+        cv.put("isPassed",test.isPassed);
+
+        myDataBase = this.getWritableDatabase();
+        myDataBase.insert("Test",null,cv);
+
 
     }
 

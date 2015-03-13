@@ -43,6 +43,7 @@
 
             <com.example.computerquiz.ui.widget.HalfHeightLayout
                 android:id="@+id/btnGiveTest"
+
                 android:layout_margin="1dp"
                 android:background="@drawable/gradient_blue"
                 android:layout_width="match_parent"
@@ -95,7 +96,6 @@
                     <ImageView
                         android:layout_gravity="center"
                         android:src="@drawable/ic_action_event_note"
-
                         style="@style/home_btn_big_iv" />
 
                 </FrameLayout>

@@ -48,6 +48,7 @@ public class LevelActivity extends ActionBarActivity {
                 i.putExtra("selected_level",levels.get(position)._id);
                 i.putExtra("selected_category",levels.get(position).category_id);
                 startActivity(i);
+                finish();
             }
         });
     }

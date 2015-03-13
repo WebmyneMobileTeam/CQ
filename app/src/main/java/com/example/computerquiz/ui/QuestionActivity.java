@@ -1,11 +1,14 @@
 package com.example.computerquiz.ui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +21,13 @@ import android.widget.Toast;
 import com.example.computerquiz.R;
 import com.example.computerquiz.helpers.DatabaseHelper;
 import com.example.computerquiz.model.Question;
+import com.example.computerquiz.model.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class QuestionActivity extends ActionBarActivity {
 
@@ -34,6 +42,13 @@ public class QuestionActivity extends ActionBarActivity {
     private DatabaseHelper dbHelper;
     private TextView txtQuestionDescription;
     private RadioGroup radioGroup;
+    private HashMap<Integer,Integer> answersMap;
+
+
+    int  totalQuestions;
+    int correctQuestions;
+    int inCorrectQuestions;
+    float percentage;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +56,10 @@ public class QuestionActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_question);
         init();
         setupToolBar();
-
         selected_category = getIntent().getIntExtra("selected_category",0);
         selected_level = getIntent().getIntExtra("selected_level",0);
         new fetchQuestions().execute();
+        answersMap = new HashMap<>();
 
 	}
 
@@ -60,23 +75,115 @@ public class QuestionActivity extends ActionBarActivity {
         txtQuestionNumber = (TextView)findViewById(R.id.txtQuestionNumber);
         txtQuestionDescription = (TextView)findViewById(R.id.txtQuestionDescription);
         radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
+        radioGroup.setOnCheckedChangeListener(checkedChangeListner);
 
         txtPrevious.setOnClickListener(previousListner);
         txtNext.setOnClickListener(nextListner);
     }
+
+    private RadioGroup.OnCheckedChangeListener checkedChangeListner = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            answersMap.put(current_question,checkedId);
+        }
+    };
 
     private View.OnClickListener nextListner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
             if(current_question == questions.size()-1){
-                Toast.makeText(QuestionActivity.this, "Finish", Toast.LENGTH_SHORT).show();
+
+                processFinish();
             }else{
                 current_question = current_question+1;
                 setupQuestion(current_question);
             }
         }
     };
+
+    private void processFinish() {
+
+          totalQuestions = questions.size();
+          correctQuestions = 0;
+          inCorrectQuestions = 0;
+          percentage = 0;
+
+
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+
+
+                Set keys = answersMap.keySet();
+                for (int i=0;i<questions.size();i++){
+
+                    if(keys.contains(i)){
+
+                        Log.e("Answer :",String.format("Question %d is answered and given answer is %d",i,answersMap.get(i)));
+                        if(questions.get(i).correct_answer == answersMap.get(i)+1){
+                            Log.e("Correct/Incorrect :","Correct");
+                            correctQuestions = correctQuestions + 1;
+                        }else{
+                            Log.e("Correct/Incorrect :","InCorrect");
+                            inCorrectQuestions = inCorrectQuestions + 1;
+                        }
+
+                    }else{
+                        inCorrectQuestions = inCorrectQuestions + 1;
+                        Log.e("Answer :",String.format("Question %d is not answered",i));
+
+                    }
+                }
+
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+
+                percentage = (float)((correctQuestions*100)/totalQuestions);
+
+                boolean isPassed = false;
+
+                if(percentage>=35.0){
+
+                    isPassed = true;
+                    Toast.makeText(QuestionActivity.this, "Pass", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    isPassed = false;
+                    Toast.makeText(QuestionActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                }
+
+                Test currentTest = new Test();
+                currentTest.category_id = selected_category;
+                currentTest.level_id = selected_level;
+                currentTest.correct_questions = correctQuestions;
+                currentTest.total_questions = totalQuestions;
+                currentTest.isPassed = isPassed;
+
+                DatabaseHelper helper = new DatabaseHelper(QuestionActivity.this);
+                helper.insertTest(currentTest);
+                helper.close();
+
+
+
+
+            }
+        }.execute();
+
+        Log.e("Result", String.format("Correct Are %d AND Incorrect Are %d", correctQuestions, inCorrectQuestions));
+
+    }
 
     private View.OnClickListener previousListner = new View.OnClickListener() {
         @Override
@@ -91,6 +198,39 @@ public class QuestionActivity extends ActionBarActivity {
 
         }
     };
+
+    @Override
+    public void onBackPressed() {
+       // super.onBackPressed();
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Wait..");
+        alert.setMessage("Current test will lost. ");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+                Intent i = new Intent(QuestionActivity.this,HomeActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+            }
+        });
+
+        alert.show();
+    }
 
     private void setupToolBar() {
 
@@ -155,22 +295,40 @@ public class QuestionActivity extends ActionBarActivity {
 
         Question selectedQuestion = questions.get(current_question);
         txtQuestionDescription.setText(selectedQuestion.description);
-        fillOptions(selectedQuestion.getOptions());
+        fillOptions(selectedQuestion.getOptions(),current_question);
 
     }
 
-    private void fillOptions(ArrayList<String> options) {
+    @Override
+    protected void onStop() {
+        super.onStop();
+        answersMap.clear();
+        questions.clear();
+    }
+
+    private void fillOptions(ArrayList<String> options,int current_question) {
 
         radioGroup.removeAllViews();
-        radioGroup.invalidate();
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+
+
+
 
         for (int i=0;i<options.size();i++){
 
             RadioButton button = new RadioButton(QuestionActivity.this);
             button.setText(options.get(i));
+            button.setId(i);
             radioGroup.addView(button,params);
         }
+
+        Set keys = answersMap.keySet();
+        if(keys.contains(current_question)){
+                radioGroup.check(questions.get(current_question).correct_answer - 1);
+        }
+            radioGroup.invalidate();
 
 
     }
