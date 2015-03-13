@@ -11,5 +11,6 @@ public class Test {
     public int total_questions;
     public int correct_questions;
     public boolean isPassed;
+    public String generated;
 
 }

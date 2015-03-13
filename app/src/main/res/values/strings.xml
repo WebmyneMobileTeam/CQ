@@ -17,5 +17,6 @@
     <string name="title_next_question">Next</string>
     <string name="title_previous_question">Previous</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_test_list">TestListActivity</string>
 
 </resources>

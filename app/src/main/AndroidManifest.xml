@@ -64,6 +64,10 @@ s
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
+        <activity
+            android:name=".ui.TestListActivity"
+            android:label="@string/title_activity_test_list" >
+        </activity>
     </application>
 
 </manifest>

@@ -53,6 +53,8 @@ public class MainActivity extends Activity {
 			}
 			
 		}.start();		*/		//Starts the thread
+
+
 		Intent i=new Intent(this,HomeActivity.class);	//Divert the control to Categories after 5000msec automatically
         startActivity(i);
         finish();

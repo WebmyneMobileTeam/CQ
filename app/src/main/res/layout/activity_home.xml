@@ -75,6 +75,7 @@
             </com.example.computerquiz.ui.widget.HalfHeightLayout>
 
             <com.example.computerquiz.ui.widget.HalfHeightLayout
+                android:id="@+id/btnSeeTests"
                 android:layout_margin="1dp"
                 android:background="@drawable/gradient_green"
                 android:layout_width="match_parent"
@@ -174,6 +175,7 @@
 
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_below="@id/linearTop"
         android:gravity="center_vertical"
         android:layout_gravity="center_vertical"

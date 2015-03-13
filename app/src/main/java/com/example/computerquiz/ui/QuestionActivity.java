@@ -23,7 +23,9 @@ import com.example.computerquiz.helpers.DatabaseHelper;
 import com.example.computerquiz.model.Question;
 import com.example.computerquiz.model.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -43,6 +45,7 @@ public class QuestionActivity extends ActionBarActivity {
     private TextView txtQuestionDescription;
     private RadioGroup radioGroup;
     private HashMap<Integer,Integer> answersMap;
+    public static final String DATE_FORMAT_NOW = "dd-MM-yyyy HH:mm";
 
 
     int  totalQuestions;
@@ -67,6 +70,12 @@ public class QuestionActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
 
+    }
+
+    public static String now() {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+        return sdf.format(cal.getTime());
     }
     private void init() {
 
@@ -170,12 +179,17 @@ public class QuestionActivity extends ActionBarActivity {
                 currentTest.correct_questions = correctQuestions;
                 currentTest.total_questions = totalQuestions;
                 currentTest.isPassed = isPassed;
+                currentTest.generated = now();
 
                 DatabaseHelper helper = new DatabaseHelper(QuestionActivity.this);
                 helper.insertTest(currentTest);
                 helper.close();
 
-
+                Intent i = new Intent(QuestionActivity.this,ResultActivity.class);
+                i.putExtra("isPassed",isPassed);
+                i.putExtra("total",totalQuestions);
+                i.putExtra("correct",correctQuestions);
+                startActivity(i);
 
 
             }

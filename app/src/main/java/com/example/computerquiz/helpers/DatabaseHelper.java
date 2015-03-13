@@ -53,6 +53,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public ArrayList<Test> getAllTests(){
+
+        ArrayList<Test> categories = new ArrayList<>();
+        myDataBase = this.getWritableDatabase();
+
+        //  String wher = "role_name_" + " = ? AND " + "main_line_type_" + " = ?";
+        // String[] FIELDS = { "cast_matches_" };
+        Cursor cursor =   myDataBase.query("Test", null, null, null, null, null, null);
+        String castMatchesString = null;
+        cursor.moveToFirst();
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                Test test = new Test();
+                test.generated = cursor.getString(cursor.getColumnIndex("generated"));
+                int bol = cursor.getInt(cursor.getColumnIndex("isPassed"));
+                if(bol == 0){
+                    test.isPassed = false;
+                }else{
+                    test.isPassed = true;
+                }
+                test.correct_questions = cursor.getInt(cursor.getColumnIndex("correct_questions"));
+                test.level_id = cursor.getInt(cursor.getColumnIndex("level_id"));
+                test.category_id = cursor.getInt(cursor.getColumnIndex("category_id"));
+                test.total_questions = cursor.getInt(cursor.getColumnIndex("total_questions"));
+
+                categories.add(test);
+
+            } while (cursor.moveToNext());
+        }
+
+        return categories;
+
+    }
+
+
     public ArrayList<Category> getAllCategories(){
         ArrayList<Category> categories = new ArrayList<>();
         myDataBase = this.getWritableDatabase();
@@ -147,6 +184,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("total_questions",test.total_questions);
         cv.put("correct_questions",test.correct_questions);
         cv.put("isPassed",test.isPassed);
+        cv.put("generated",test.generated);
 
         myDataBase = this.getWritableDatabase();
         myDataBase.insert("Test",null,cv);
