@@ -111,13 +111,13 @@ public class QuestionActivity extends ActionBarActivity {
         }
     };
 
+
     private void processFinish() {
 
           totalQuestions = questions.size();
           correctQuestions = 0;
           inCorrectQuestions = 0;
           percentage = 0;
-
 
         new AsyncTask<Void, Void, Void>() {
 
