@@ -93,7 +93,7 @@
                         android:layout_height="wrap_content"
                         android:text="Answers:"
                         android:textStyle="bold"
-                        android:textSize="@dimen/normal_text"/>
+                        android:textSize="@dimen/normal_text" />
 
                     <RadioGroup
                         android:gravity="left|center_vertical"

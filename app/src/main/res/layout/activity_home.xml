@@ -42,8 +42,7 @@
             android:orientation="horizontal">
 
             <com.example.computerquiz.ui.widget.HalfHeightLayout
-                android:id="@+id/btnMessages"
-
+                android:id="@+id/btnGiveTest"
                 android:layout_margin="1dp"
                 android:background="@drawable/gradient_blue"
                 android:layout_width="match_parent"

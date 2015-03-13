@@ -1875,7 +1875,7 @@ containing a value of this type.
         public static final int bold=0x7f09001b;
         public static final int btn3=0x7f090047;
         public static final int btn4=0x7f090049;
-        public static final int btnMessages=0x7f090043;
+        public static final int btnGiveTest=0x7f090043;
         public static final int button1=0x7f090058;
         public static final int card_view=0x7f09005f;
         public static final int checkbox=0x7f09002b;

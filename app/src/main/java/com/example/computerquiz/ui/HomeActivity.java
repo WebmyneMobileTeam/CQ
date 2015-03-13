@@ -1,22 +1,45 @@
 package com.example.computerquiz.ui;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.computerquiz.R;
+import com.example.computerquiz.ui.widget.HalfHeightLayout;
 
 public class HomeActivity extends ActionBarActivity {
+
+    private HalfHeightLayout btnGiveTest;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        btnGiveTest = (HalfHeightLayout)findViewById(R.id.btnGiveTest);
+        btnGiveTest.setOnClickListener(newTestListner);
+
+    }
+
+    private View.OnClickListener newTestListner = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+                proceedNewTest();
+        }
+    };
+
+    private void proceedNewTest() {
+
+        Intent iNewTest = new Intent(HomeActivity.this,CategoriesActivity.class);
+        startActivity(iNewTest);
+
     }
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
@@ -36,5 +59,5 @@ public class HomeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
