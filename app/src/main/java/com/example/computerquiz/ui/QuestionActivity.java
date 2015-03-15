@@ -53,6 +53,7 @@ public class QuestionActivity extends ActionBarActivity {
     private ImageView globalImageview;
 
 
+
     int  totalQuestions;
     int correctQuestions;
     int inCorrectQuestions;
@@ -192,6 +193,7 @@ public class QuestionActivity extends ActionBarActivity {
                 currentTest.isPassed = isPassed;
                 currentTest.generated = now();
                 currentTest.questions = questions;
+                currentTest.answersMap = answersMap;
 
                 DatabaseHelper helper = new DatabaseHelper(QuestionActivity.this);
                 helper.insertTest(currentTest);

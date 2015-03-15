@@ -1913,7 +1913,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090030;
         public static final int action_mode_bar_stub=0x7f09002f;
         public static final int action_mode_close_button=0x7f090022;
-        public static final int action_settings=0x7f09006a;
+        public static final int action_settings=0x7f09006d;
         public static final int activity_chooser_view_content=0x7f090023;
         public static final int always=0x7f090016;
         public static final int beginning=0x7f090013;
@@ -1923,11 +1923,11 @@ containing a value of this type.
         public static final int btnGiveTest=0x7f090044;
         public static final int btnReviewResult=0x7f09005a;
         public static final int btnSeeTests=0x7f090046;
-        public static final int card_view=0x7f090064;
-        public static final int card_view_backgroundColor=0x7f09005e;
+        public static final int card_view=0x7f090065;
+        public static final int card_view_backgroundColor=0x7f09005f;
         public static final int checkbox=0x7f09002b;
         public static final int collapseActionView=0x7f090017;
-        public static final int color_picker=0x7f090062;
+        public static final int color_picker=0x7f090063;
         public static final int decor_content_parent=0x7f090031;
         public static final int default_activity_button=0x7f090026;
         public static final int dialog=0x7f09001d;
@@ -1938,8 +1938,8 @@ containing a value of this type.
         public static final int expand_activities_button=0x7f090024;
         public static final int expanded_menu=0x7f09002a;
         public static final int frameBottom=0x7f090054;
-        public static final int globalImageView=0x7f090063;
-        public static final int grid_color=0x7f090066;
+        public static final int globalImageView=0x7f090064;
+        public static final int grid_color=0x7f090067;
         public static final int home=0x7f090004;
         public static final int homeAsUp=0x7f09000d;
         public static final int icon=0x7f090028;
@@ -1949,12 +1949,14 @@ containing a value of this type.
         public static final int italic=0x7f09001c;
         public static final int iv_language=0x7f090050;
         public static final int iv_search=0x7f09004d;
+        public static final int linearInnerQuestions=0x7f090069;
         public static final int linearTop=0x7f090043;
         public static final int listCategories=0x7f090042;
         public static final int listLevelss=0x7f090052;
         public static final int listMode=0x7f090009;
-        public static final int listTests=0x7f090060;
+        public static final int listTests=0x7f090061;
         public static final int list_item=0x7f090027;
+        public static final int lvReview=0x7f09005e;
         public static final int middle=0x7f090015;
         public static final int never=0x7f090019;
         public static final int none=0x7f09000e;
@@ -1975,7 +1977,7 @@ containing a value of this type.
         public static final int search_plate=0x7f09003b;
         public static final int search_src_text=0x7f09003c;
         public static final int search_voice_btn=0x7f090040;
-        public static final int selectedColorView=0x7f09005f;
+        public static final int selectedColorView=0x7f090060;
         public static final int shortcut=0x7f09002c;
         public static final int showCustom=0x7f09000f;
         public static final int showHome=0x7f090010;
@@ -1984,7 +1986,7 @@ containing a value of this type.
         public static final int submit_area=0x7f09003e;
         public static final int tabMode=0x7f09000b;
         public static final int title=0x7f090029;
-        public static final int toolbar=0x7f090061;
+        public static final int toolbar=0x7f090062;
         public static final int topBar=0x7f090041;
         public static final int tvSettings=0x7f090051;
         public static final int tv_search=0x7f09004e;
@@ -1998,10 +2000,11 @@ containing a value of this type.
         public static final int txtQuestionNumber=0x7f090057;
         public static final int txtResult=0x7f09005d;
         public static final int txtResultNumber=0x7f09005b;
-        public static final int txtTestItemDate=0x7f090069;
-        public static final int txtTestItemSubTitle=0x7f090068;
-        public static final int txtTestItemTitle=0x7f090067;
-        public static final int txtTitleCategoryName=0x7f090065;
+        public static final int txtTestItemDate=0x7f09006c;
+        public static final int txtTestItemSubTitle=0x7f09006b;
+        public static final int txtTestItemTitle=0x7f09006a;
+        public static final int txtTitleCategoryName=0x7f090066;
+        public static final int txtTitleQuestionName=0x7f090068;
         public static final int up=0x7f090008;
         public static final int useLogo=0x7f090012;
         public static final int withText=0x7f09001a;
@@ -2049,8 +2052,9 @@ containing a value of this type.
         public static final int global_background=0x7f030022;
         public static final int item_category=0x7f030023;
         public static final int item_color_picker=0x7f030024;
-        public static final int item_test=0x7f030025;
-        public static final int support_simple_spinner_dropdown_item=0x7f030026;
+        public static final int item_review=0x7f030025;
+        public static final int item_test=0x7f030026;
+        public static final int support_simple_spinner_dropdown_item=0x7f030027;
     }
     public static final class menu {
         public static final int categories=0x7f0d0000;

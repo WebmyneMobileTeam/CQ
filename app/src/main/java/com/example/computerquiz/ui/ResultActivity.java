@@ -87,6 +87,9 @@ public class ResultActivity extends ActionBarActivity {
 		@Override
 		public void onClick(View v) {
 
+			Intent iReview = new Intent(ResultActivity.this,ReviewActivity.class);
+			startActivity(iReview);
+
 		}
 	};
 
