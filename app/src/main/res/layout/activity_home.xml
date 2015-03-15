@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#494949">
+    android:layout_height="match_parent">
+
+    <include layout="@layout/global_background"></include>
+
 
     <LinearLayout
         android:gravity="center"
@@ -175,7 +176,7 @@
 
 
     <LinearLayout
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_below="@id/linearTop"
         android:gravity="center_vertical"
         android:layout_gravity="center_vertical"
@@ -197,18 +198,19 @@
                 style="@style/home_btn_small_iv" />
 
             <TextView
-                android:textColor="@color/blue"
+                android:textColor="#fff"
                 android:id="@+id/tv_search"
-                android:text="Profile"
+                android:text="Help"
                 android:layout_toRightOf="@id/iv_search"
                 style="@style/home_btn_small_tv" />
 
 
         </RelativeLayout>
 
-        <ImageView style="@style/home_btn_separator" />
+
 
         <RelativeLayout
+            android:layout_marginTop="8dp"
             android:id="@+id/rl_language"
             android:paddingLeft="@dimen/home_btn_small_margin_lr"
             style="@style/home_btn_small">
@@ -219,8 +221,8 @@
                 style="@style/home_btn_small_iv" />
 
             <TextView
-                android:textColor="@color/green"
-                android:id="@+id/tv_language"
+                android:textColor="#fff"
+                android:id="@+id/tvSettings"
                 android:text="Settings"
                 android:layout_toRightOf="@id/iv_language"
                 style="@style/home_btn_small_tv" />

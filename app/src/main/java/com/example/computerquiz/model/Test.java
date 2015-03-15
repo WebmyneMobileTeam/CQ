@@ -1,5 +1,7 @@
 package com.example.computerquiz.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by Android on 10-03-2015.
  */
@@ -12,5 +14,6 @@ public class Test {
     public int correct_questions;
     public boolean isPassed;
     public String generated;
+    public ArrayList<Question> questions;
 
 }

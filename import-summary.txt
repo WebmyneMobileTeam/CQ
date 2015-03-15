@@ -1,36 +1,42 @@
 ECLIPSE ANDROID PROJECT IMPORT SUMMARY
 ======================================
 
+Risky Project Location:
+-----------------------
+The tools *should* handle project locations in any directory. However,
+due to bugs, placing projects in directories containing spaces in the
+path, or characters like ", ' and &, have had issues. We're working to
+eliminate these bugs, but to save yourself headaches you may want to
+move your project to a location where this is not a problem.
+F:\projects data\fiverr\Quiz App\CQ
+           -                -      
+
 Ignored Files:
 --------------
 The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
+* README.md
+* README_CALENDAR.md
+* README_DASH.md
 * ic_launcher-web.png
-* proguard-project.txt
-
-Replaced Jars with Dependencies:
---------------------------------
-The importer recognized the following .jar files as third party
-libraries and replaced them with Gradle dependencies instead. This has
-the advantage that more explicit version information is known, and the
-libraries can be updated automatically. However, it is possible that
-the .jar file in your project was of an older version than the
-dependency we picked, which could render the project not compileable.
-You can disable the jar replacement in the import wizard and try again:
-
-android-support-v4.jar => com.android.support:support-v4:18.0.0
+* images\
+* images\allscreen.png
+* images\dashDialog.png
+* images\dash_prefs.png
+* images\screen.jpg
+* images\stock.png
+* images\stock_prefs.png
 
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => app\src\main\AndroidManifest.xml
-* assets\ => app\src\main\assets\
-* res\ => app\src\main\res\
-* src\ => app\src\main\java\
+* AndroidManifest.xml => colorPicker\src\main\AndroidManifest.xml
+* res\ => colorPicker\src\main\res\
+* src\ => colorPicker\src\main\java\
 
 Next Steps:
 -----------

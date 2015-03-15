@@ -3,6 +3,7 @@ package com.example.computerquiz.ui;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -13,11 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.computerquiz.R;
 import com.example.computerquiz.helpers.DatabaseHelper;
+import com.example.computerquiz.helpers.Prefs;
 import com.example.computerquiz.model.Level;
 
 import java.util.ArrayList;
@@ -29,6 +32,7 @@ public class LevelActivity extends ActionBarActivity {
     private DatabaseHelper dbHelper;
     private Toolbar toolbar;
     private ListView lvLevels;
+    private ImageView globalImageview;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +43,33 @@ public class LevelActivity extends ActionBarActivity {
         new fetchLevels().execute();
 	}
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updatePreferences();
+    }
+
     private void init() {
+        globalImageview = (ImageView) findViewById(R.id.globalImageView);
         lvLevels = (ListView) findViewById(R.id.listLevelss);
         lvLevels.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(LevelActivity.this,QuestionActivity.class);
-                i.putExtra("selected_level",levels.get(position)._id);
-                i.putExtra("selected_category",levels.get(position).category_id);
+                Intent i = new Intent(LevelActivity.this, QuestionActivity.class);
+                i.putExtra("selected_level", levels.get(position)._id);
+                i.putExtra("selected_category", levels.get(position).category_id);
                 startActivity(i);
                 finish();
             }
         });
+    }
+
+    private void updatePreferences() {
+
+        String color = Prefs.with(LevelActivity.this).getString("back", "#494949");
+        globalImageview.setBackgroundColor(Color.parseColor(color));
+
+
     }
 
     private void setupToolBar() {

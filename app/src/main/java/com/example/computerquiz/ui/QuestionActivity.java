@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -13,13 +14,16 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.computerquiz.R;
+import com.example.computerquiz.helpers.ComplexPreferences;
 import com.example.computerquiz.helpers.DatabaseHelper;
+import com.example.computerquiz.helpers.Prefs;
 import com.example.computerquiz.model.Question;
 import com.example.computerquiz.model.Test;
 
@@ -46,6 +50,7 @@ public class QuestionActivity extends ActionBarActivity {
     private RadioGroup radioGroup;
     private HashMap<Integer,Integer> answersMap;
     public static final String DATE_FORMAT_NOW = "dd-MM-yyyy HH:mm";
+    private ImageView globalImageview;
 
 
     int  totalQuestions;
@@ -59,6 +64,7 @@ public class QuestionActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_question);
         init();
         setupToolBar();
+        globalImageview = (ImageView) findViewById(R.id.globalImageView);
         selected_category = getIntent().getIntExtra("selected_category",0);
         selected_level = getIntent().getIntExtra("selected_level",0);
         new fetchQuestions().execute();
@@ -69,7 +75,13 @@ public class QuestionActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        updatePreferences();
 
+    }
+
+    private void updatePreferences() {
+        String color = Prefs.with(QuestionActivity.this).getString("back", "#494949");
+        globalImageview.setBackgroundColor(Color.parseColor(color));
     }
 
     public static String now() {
@@ -147,7 +159,6 @@ public class QuestionActivity extends ActionBarActivity {
                     }else{
                         inCorrectQuestions = inCorrectQuestions + 1;
                         Log.e("Answer :",String.format("Question %d is not answered",i));
-
                     }
                 }
 
@@ -180,10 +191,15 @@ public class QuestionActivity extends ActionBarActivity {
                 currentTest.total_questions = totalQuestions;
                 currentTest.isPassed = isPassed;
                 currentTest.generated = now();
+                currentTest.questions = questions;
 
                 DatabaseHelper helper = new DatabaseHelper(QuestionActivity.this);
                 helper.insertTest(currentTest);
                 helper.close();
+
+                ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(QuestionActivity.this, "mypref", MODE_PRIVATE);;
+                complexPreferences.putObject("currentTest", currentTest);
+                complexPreferences.commit();
 
                 Intent i = new Intent(QuestionActivity.this,ResultActivity.class);
                 i.putExtra("isPassed",isPassed);
@@ -325,16 +341,12 @@ public class QuestionActivity extends ActionBarActivity {
         radioGroup.removeAllViews();
         RadioGroup.LayoutParams params = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-
-
-
-
-
         for (int i=0;i<options.size();i++){
 
             RadioButton button = new RadioButton(QuestionActivity.this);
             button.setText(options.get(i));
             button.setId(i);
+            button.setTextColor(Color.WHITE);
             radioGroup.addView(button,params);
         }
 

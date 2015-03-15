@@ -4,17 +4,10 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="18" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".ui.MyApplication"
@@ -49,24 +42,20 @@ s
             android:label="@string/title_activity_result" >
         </activity>
         <activity
-            android:name=".ui.Result2"
-            android:label="@string/title_activity_result2" >
-        </activity>
-        <activity
-            android:name=".ui.ResultAnalysisActivity"
-            android:label="@string/title_activity_result_analysis" >
-        </activity>
-        <activity
-            android:name=".ui.ReviewActivity"
-            android:label="@string/title_activity_review" >
-        </activity>
-        <activity
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
         <activity
             android:name=".ui.TestListActivity"
             android:label="@string/title_activity_test_list" >
+        </activity>
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".ui.ReviewActivity"
+            android:label="@string/title_activity_review" >
         </activity>
     </application>
 

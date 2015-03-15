@@ -18,5 +18,48 @@
     <string name="title_previous_question">Previous</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_test_list">TestListActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string-array name="arrColor">
+
+        <item>#1abc9c</item>
+        <item>#2ecc71</item>
+        <item>#3498db</item>
+        <item>#9b59b6</item>
+        <item>#34495e</item>
+        <item>#16a085</item>
+        <item>#27ae60</item>
+        <item>#2980b9</item>
+        <item>#8e44ad</item>
+        <item>#2c3e50</item>
+        <item>#f1c40f</item>
+        <item>#e67e22</item>
+        <item>#e74c3c</item>
+        <item>#95a5a6</item>
+        <item>#f39c12</item>
+        <item>#d35400</item>
+        <item>#c0392b</item>
+        <item>#7f8c8d</item>
+    </string-array>
+
+
+    <!-- Menu MainActivity -->
+    <string name="ns_menu_main_header_dash">Dashclock</string>
+    <string name="ns_menu_main_row_dash_original">Original ColorPreference</string>
+    <string name="ns_menu_main_row_dash_dialog">Custom ColorPickerDialog</string>
+    <string name="ns_menu_main_header_calendar">Stock Calendar</string>
+    <string name="ns_menu_main_row_calendar_original">Original ColorPicker</string>
+    <string name="ns_menu_main_row_calendar_preference">Custom ColorPreference</string>
+
+    <!-- About -->
+    <string name="title_about">About</string>
+    <string name="about_ok">OK</string>
+    <string name="about_body"><![CDATA[
+        <b>Colorpickercollection Library & Demo</b><br>
+        Version %s<br><br>
+        <a href="https://github.com/gabrielemariotti/colorpickercollection">Source</a><br><br>
+        <a href="https://plus.google.com/114432517923423045208">By Gabriele Mariotti</a><br><br>
+
+    ]]></string>
 
 </resources>

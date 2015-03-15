@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.view.Menu;
 
 import com.example.computerquiz.R;
+import com.example.computerquiz.helpers.Prefs;
 
 public class MainActivity extends Activity {
 
@@ -32,6 +33,7 @@ public class MainActivity extends Activity {
 
 		mHandler.post(new Runnable() {
             public void run() {
+
                 func();
             }
         });

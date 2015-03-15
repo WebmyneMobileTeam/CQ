@@ -3,6 +3,7 @@ package com.example.computerquiz.ui;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.computerquiz.R;
 import com.example.computerquiz.helpers.DatabaseHelper;
+import com.example.computerquiz.helpers.Prefs;
 import com.example.computerquiz.model.Category;
 
 import java.text.ParseException;
@@ -35,30 +37,45 @@ public class CategoriesActivity extends ActionBarActivity {
     private DatabaseHelper dbHelper;
     private Toolbar toolbar;
     private ListView lvCategories;
-
+    private ImageView globalImageview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
+
         init();
         setupToolBar();
         new fetchCategories().execute();
     }
 
     private void init() {
-
+        globalImageview = (ImageView) findViewById(R.id.globalImageView);
         lvCategories = (ListView) findViewById(R.id.listCategories);
         lvCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent i = new Intent(CategoriesActivity.this,LevelActivity.class);
-                i.putExtra("selected_category",categories.get(position)._id);
+                Intent i = new Intent(CategoriesActivity.this, LevelActivity.class);
+                i.putExtra("selected_category", categories.get(position)._id);
                 startActivity(i);
 
             }
         });
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updatePreferences();
+    }
+
+    private void updatePreferences() {
+
+        String color = Prefs.with(CategoriesActivity.this).getString("back", "#494949");
+        globalImageview.setBackgroundColor(Color.parseColor(color));
+
 
     }
 
