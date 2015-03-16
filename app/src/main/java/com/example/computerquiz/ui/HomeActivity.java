@@ -25,6 +25,10 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+
+
         btnGiveTest = (HalfHeightLayout) findViewById(R.id.btnGiveTest);
         btnGiveTest.setOnClickListener(newTestListner);
         btnSeeTests = (HalfHeightLayout) findViewById(R.id.btnSeeTests);
@@ -45,7 +49,6 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
 
         String color = Prefs.with(HomeActivity.this).getString("back", "#494949");
         globalImageview.setBackgroundColor(Color.parseColor(color));
-
 
     }
 
