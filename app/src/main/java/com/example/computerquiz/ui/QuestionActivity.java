@@ -124,7 +124,6 @@ public class QuestionActivity extends ActionBarActivity {
         }
     };
 
-
     private void processFinish() {
 
           totalQuestions = questions.size();

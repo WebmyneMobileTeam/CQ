@@ -107,6 +107,7 @@ public class ReviewActivity extends ActionBarActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             View rowView = convertView;
             // reuse views
+
             if (rowView == null) {
                 LayoutInflater inflater = context.getLayoutInflater();
                 rowView = inflater.inflate(R.layout.item_review, null);
@@ -117,6 +118,7 @@ public class ReviewActivity extends ActionBarActivity {
                 rowView.setTag(viewHolder);
 
             }
+
             ViewHolder holder = (ViewHolder) rowView.getTag();
             Question question = programs.get(position);
 
@@ -132,26 +134,20 @@ public class ReviewActivity extends ActionBarActivity {
                 TextView tv = new TextView(context);
                 tv.setText(String.format("%d. %s", i + 1, options.get(i)));
                 holder.linearInnerQuestions.addView(tv, params);
-                if(i == programs.get(position).correct_answer-1){
+                if (i == programs.get(position).correct_answer - 1) {
                     tv.setBackgroundColor(Color.GREEN);
                 }
             }
-
-
-
-
-            if(keys.contains(position)){
+            if (keys.contains(position)) {
                 int answeredPosition = currentTest.answersMap.get(position);
-                TextView tv = (TextView)holder.linearInnerQuestions.getChildAt(answeredPosition);
+                TextView tv = (TextView) holder.linearInnerQuestions.getChildAt(answeredPosition);
 
-                if(answeredPosition == programs.get(position).correct_answer-1){
+                if (answeredPosition == programs.get(position).correct_answer - 1) {
 
-                }else{
+                } else {
                     tv.setBackgroundColor(Color.RED);
                 }
-
             }
-
             return rowView;
         }
     }
