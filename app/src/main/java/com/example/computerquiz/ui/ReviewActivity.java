@@ -127,10 +127,28 @@ public class ReviewActivity extends ActionBarActivity {
 
             Set keys = currentTest.answersMap.keySet();
 
+            holder.linearInnerQuestions.removeAllViews();
             for (int i = 0; i < options.size(); i++) {
                 TextView tv = new TextView(context);
                 tv.setText(String.format("%d. %s", i + 1, options.get(i)));
                 holder.linearInnerQuestions.addView(tv, params);
+                if(i == programs.get(position).correct_answer-1){
+                    tv.setBackgroundColor(Color.GREEN);
+                }
+            }
+
+
+
+
+            if(keys.contains(position)){
+                int answeredPosition = currentTest.answersMap.get(position);
+                TextView tv = (TextView)holder.linearInnerQuestions.getChildAt(answeredPosition);
+
+                if(answeredPosition == programs.get(position).correct_answer-1){
+
+                }else{
+                    tv.setBackgroundColor(Color.RED);
+                }
 
             }
 
